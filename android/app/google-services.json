@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "891014081486",
+    "project_id": "snap-47fe5",
+    "storage_bucket": "snap-47fe5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891014081486:android:eec84522d2c2196798999f",
+        "android_client_info": {
+          "package_name": "com.example.snap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "891014081486-degs6fl7b908gtrn23n7jl6qh2cvoiql.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcUdInkS3ibNRPz-fZeaGGkkXyGUo0msk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "891014081486-degs6fl7b908gtrn23n7jl6qh2cvoiql.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "891014081486-qlojmb1g8t4cd7o7qt1i0if8inv19c49.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.snap"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

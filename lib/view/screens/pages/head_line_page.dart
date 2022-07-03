@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:snap/view/components/artwork_container.dart';
+import 'package:snap/view/components/speech_bubbles.dart';
 
 class HeadLinePage extends StatelessWidget {
   const HeadLinePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ArtworkContainer();
+    return Stack(
+        children: [
+          SpeechBubbles(),
+          ArtworkContainer(),
+        ],
+    );
   }
 }

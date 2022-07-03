@@ -43,5 +43,28 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<!-- Put me in the [my_project]/ios/Runner/Info.plist file -->
+    <!-- Google Sign-in Section -->
+    <key>CFBundleURLTypes</key>
+    <array>
+    	<dict>
+    		<key>CFBundleTypeRole</key>
+    		<string>Editor</string>
+    		<key>CFBundleURLSchemes</key>
+    		<array>
+    			<!-- Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID -->
+    			<string>com.googleusercontent.apps.891014081486-qlojmb1g8t4cd7o7qt1i0if8inv19c49</string>
+    		</array>
+    	</dict>
+    </array>
+    <!-- End of the Google Sign-in Section -->
+    <!-- image_picker Section -->
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Your Photo Library is required for this app</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Your Camera is required for this app</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Your microphone is required for this app</string>
+    <!-- End of the image_picker Section -->
 </dict>
 </plist>
