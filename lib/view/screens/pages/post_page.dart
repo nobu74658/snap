@@ -36,16 +36,6 @@ class PostPage extends StatelessWidget {
   }
 
   _openPostUploadScreen(UploadType uploadType, BuildContext context) {
-    // WidgetsBinding.instance?.addPostFrameCallback((_) {
-    //   Navigator.push(
-    //     context,
-    //     MaterialPageRoute(
-    //       builder: (_) => PostUploadScreen(
-    //         uploadType: uploadType,
-    //       ),
-    //     ),
-    //   );
-    // });
     Navigator.push(
       context,
       MaterialPageRoute(

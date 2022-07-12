@@ -13,6 +13,11 @@ class PostViewModel extends ChangeNotifier {
 
   File? imageFile;
 
+  String caption = "";
+
+  String title = "";
+  String author = "";
+
   bool isProcessing = false;
   bool isImagePicked = false;
 
@@ -26,6 +31,27 @@ class PostViewModel extends ChangeNotifier {
     print("pickedImage: ${imageFile?.path}");
     if(imageFile != null) isImagePicked = true;
     isProcessing = false;
+    notifyListeners();
+  }
+
+  //TODO
+  Future<void> post() async{
+
+    if(imageFile == null) return;
+
+    isProcessing = true;
+    notifyListeners();
+
+    await postRepository.post(
+      UserRepository.currentUser!,
+      imageFile!,
+      caption,
+      title,
+      author,
+    );
+
+    isProcessing = false;
+    isImagePicked = false;
     notifyListeners();
   }
 }
