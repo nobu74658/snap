@@ -24,7 +24,7 @@ List<SingleChildWidget> dependentModels = [
     update: (_, dbManager, repo) => UserRepository(dbManager: dbManager),
   ),
   ProxyProvider<DatabaseManager, PostRepository>(
-      update: (_, dbManager, repo) => PostRepository())
+      update: (_, dbManager, repo) => PostRepository(dbManager: dbManager))
 ];
 
 List<SingleChildWidget> viewModels = [

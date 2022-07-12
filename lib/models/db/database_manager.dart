@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:snap/data_models/user.dart';
 
 class DatabaseManager {
@@ -21,4 +24,9 @@ class DatabaseManager {
     return User.fromMap(query.docs[0].data());
   }
 
+  Future<String> uploadImageToStorage(File imageFile, String storageId) async {
+    final storageRef = FirebaseStorage.instance.ref().child(storageId);
+    final uploadTask = storageRef.putFile(imageFile);
+    return uploadTask.then((TaskSnapshot snapshot)=> snapshot.ref.getDownloadURL());
+  }
 }
