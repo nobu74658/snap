@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:snap/data_models/post.dart';
 import 'package:snap/data_models/user.dart';
 
 class DatabaseManager {
@@ -28,5 +29,9 @@ class DatabaseManager {
     final storageRef = FirebaseStorage.instance.ref().child(storageId);
     final uploadTask = storageRef.putFile(imageFile);
     return uploadTask.then((TaskSnapshot snapshot)=> snapshot.ref.getDownloadURL());
+  }
+
+  Future<void> insertPost(Post post) async{
+    await _db.collection("posts").doc(post.postId).set(post.toMap());
   }
 }

@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
+import 'package:snap/data_models/post.dart';
 import 'package:snap/data_models/user.dart';
 import 'package:snap/models/db/database_manager.dart';
 import 'package:snap/utils/constants.dart';
@@ -24,9 +25,21 @@ class PostRepository {
     }
   }
 
-  Future<void> post(User currentUser, File imageFile, String caption, String title, String author) async{
-      final storageId = Uuid().v1();
-      final imageUrl = await dbManager.uploadImageToStorage(imageFile, storageId);
-      print("storageImageUrl: ${imageUrl}");
+  Future<void> post(User currentUser, File imageFile, String caption,
+      String title, String author) async {
+    final storageId = Uuid().v1();
+    final imageUrl = await dbManager.uploadImageToStorage(imageFile, storageId);
+    print("storageImageUrl: ${imageUrl}");
+    final post = Post(
+      postId: Uuid().v1(),
+      userId: currentUser.userId,
+      imageUrl: imageUrl,
+      imageStoragePath: storageId,
+      caption: caption,
+      title: title,
+      author: author,
+      postDateTime: DateTime.now(),
+    );
+    await dbManager.insertPost(post);
   }
 }

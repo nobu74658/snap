@@ -76,8 +76,10 @@ class PostUploadScreen extends StatelessWidget {
     );
   }
 
-  _cancelPost(BuildContext context) {
-    //TODO #cancelPost
+  _cancelPost(BuildContext context) async {
+    final postViewModel = context.read<PostViewModel>();
+    await postViewModel.cancelPost();
+    print("PostUploadScreen#_cancelPost");
     Navigator.pop(context);
   }
 

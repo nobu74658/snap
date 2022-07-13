@@ -54,4 +54,10 @@ class PostViewModel extends ChangeNotifier {
     isImagePicked = false;
     notifyListeners();
   }
+
+  Future<void> cancelPost() async{
+    isProcessing = false;
+    isImagePicked = false;
+    notifyListeners();
+  }
 }
