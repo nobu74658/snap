@@ -7,9 +7,20 @@ class ArtworkImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // child: Image(image: AssetImage('assets/images/no_image.jpg',),width: 140.0,height: 140.0, fit: BoxFit.cover,),
-      child: ,
+    print("ArtWorkImage: $imageUrl}");
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        Center(
+          child: CircularProgressIndicator(),
+        ),
+        Center(
+          child: Image.network(
+            imageUrl,
+            fit: BoxFit.cover,
+          ),
+        ),
+      ],
     );
   }
 }

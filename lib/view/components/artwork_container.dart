@@ -13,8 +13,8 @@ class ArtworkContainer extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ArtworkImage(post: post.imageUrl,),
-          ArtworkDesc(post: post,),
+          ArtworkImage(imageUrl: post.imageUrl,),
+          // ArtworkDesc(post: post,),
         ],
       ),
     );

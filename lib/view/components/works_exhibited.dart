@@ -13,8 +13,8 @@ class WorksExhibited extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        SpeechBubbles(),
         ArtworkContainer(post: post,),
+        SpeechBubbles(),
       ],
     );
   }
