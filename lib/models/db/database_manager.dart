@@ -8,30 +8,54 @@ import 'package:snap/data_models/user.dart';
 
 class DatabaseManager {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
-  Future<bool> searchUserInDb(auth.User firebaseUser) async{
-    final query = await _db.collection("users").where("userId",isEqualTo:firebaseUser.uid).get();
-    if (query.docs.length > 0){
+
+  Future<bool> searchUserInDb(auth.User firebaseUser) async {
+    final query = await _db
+        .collection("users")
+        .where("userId", isEqualTo: firebaseUser.uid)
+        .get();
+    if (query.docs.length > 0) {
       return true;
     }
     return false;
   }
 
-  Future<void> insertUser(User user) async{
+  Future<void> insertUser(User user) async {
     _db.collection("users").doc(user.userId).set(user.toMap());
   }
 
-  Future<User> getUserInfoFromDbById(String userId) async{
-    final query = await _db.collection("users").where("userId",isEqualTo: userId).get();
+  Future<User> getUserInfoFromDbById(String userId) async {
+    final query =
+        await _db.collection("users").where("userId", isEqualTo: userId).get();
     return User.fromMap(query.docs[0].data());
   }
 
   Future<String> uploadImageToStorage(File imageFile, String storageId) async {
     final storageRef = FirebaseStorage.instance.ref().child(storageId);
     final uploadTask = storageRef.putFile(imageFile);
-    return uploadTask.then((TaskSnapshot snapshot)=> snapshot.ref.getDownloadURL());
+    return uploadTask
+        .then((TaskSnapshot snapshot) => snapshot.ref.getDownloadURL());
   }
 
-  Future<void> insertPost(Post post) async{
+  Future<void> insertPost(Post post) async {
     await _db.collection("posts").doc(post.postId).set(post.toMap());
+  }
+
+  Future<List<Post>> getPosts() async {
+    final query = await _db.collection("posts").get();
+    if (query.docs.length == 0) return [];
+    var results = <Post>[];
+    await _db.collection("posts").get().then((value) {
+      value.docs.forEach((element) {
+        results.add(
+          Post.fromMap(
+            element.data(),
+          ),
+        );
+      });
+    }
+    );
+    print("posts: $results");
+    return results;
   }
 }

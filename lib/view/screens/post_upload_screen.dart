@@ -10,8 +10,10 @@ import '../components/post_description_part.dart';
 class PostUploadScreen extends StatelessWidget {
   final UploadType uploadType;
 
-  const PostUploadScreen({Key? key, required this.uploadType})
-      : super(key: key);
+  const PostUploadScreen({
+    Key? key,
+    required this.uploadType,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -42,4 +42,13 @@ class PostRepository {
     );
     await dbManager.insertPost(post);
   }
+
+  Future<List<Post>> getPosts(FeedMode feedMode) async{
+    if(feedMode == FeedMode.FROM_HEAD){
+      //TODO: 投稿された作品をすべて取得
+      return dbManager.getPosts();
+    } else {
+      return dbManager.getPosts();
+    }
+  }
 }

@@ -34,7 +34,6 @@ class PostViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  //TODO
   Future<void> post() async{
 
     if(imageFile == null) return;

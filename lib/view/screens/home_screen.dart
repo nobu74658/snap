@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snap/utils/constants.dart';
 import 'package:snap/view/screens/pages/about_us_page.dart';
 import 'package:snap/view/screens/pages/head_line_page.dart';
 import 'package:snap/view/screens/pages/post_page.dart';
@@ -18,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState(){
     _pages = [
-      HeadLinePage(),
+      HeadLinePage(feedMode: FeedMode.FROM_HEAD),
       WorkListPage(),
       PostPage(),
       AboutUsPage(),

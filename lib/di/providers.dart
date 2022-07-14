@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:snap/models/db/database_manager.dart';
 import 'package:snap/models/repositories/post_repository.dart';
 import 'package:snap/models/repositories/user_repository.dart';
+import 'package:snap/view_models/head_line_view_model.dart';
 import 'package:snap/view_models/post_view_model.dart';
 
 import '../view_models/login_view_model.dart';
@@ -35,6 +36,12 @@ List<SingleChildWidget> viewModels = [
   ),
   ChangeNotifierProvider<PostViewModel>(
     create: (context) => PostViewModel(
+      userRepository: context.read<UserRepository>(),
+      postRepository: context.read<PostRepository>(),
+    ),
+  ),
+  ChangeNotifierProvider<HeadLineViewModel>(
+    create: (context) => HeadLineViewModel(
       userRepository: context.read<UserRepository>(),
       postRepository: context.read<PostRepository>(),
     ),

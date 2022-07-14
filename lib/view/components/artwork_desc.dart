@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:snap/data_models/post.dart';
 
 class ArtworkDesc extends StatelessWidget {
-  const ArtworkDesc({Key? key}) : super(key: key);
+  final Post post;
+  const ArtworkDesc({Key? key, required this.post}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
