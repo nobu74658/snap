@@ -6,8 +6,11 @@ class SpeechBubbles extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Bubble(child: Text("Hello World!"), radius: Radius.circular(30.0),),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        child: Bubble(child: Text("Hello World!"), radius: Radius.circular(30.0),),
+      ),
     );
   }
 }
