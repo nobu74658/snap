@@ -15,8 +15,7 @@ class ArtworkContainer extends StatelessWidget {
         children: [
           ArtworkImage(imageUrl: post.imageUrl,),
           // ArtworkDesc(post: post,),
-        ],
-      ),
+        ],),
     );
   }
 }

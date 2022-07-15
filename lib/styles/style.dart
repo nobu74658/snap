@@ -7,3 +7,5 @@ const BoldFont = "Bold";
 
 //Post
 const postCaptionTextStyle = TextStyle(fontFamily: RegularFont, fontSize: 14.0);
+
+const commentTextStyle = TextStyle(fontFamily: RegularFont, fontSize: 14.0);

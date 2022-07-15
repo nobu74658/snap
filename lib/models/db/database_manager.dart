@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:snap/data_models/comment.dart';
 import 'package:snap/data_models/post.dart';
 import 'package:snap/data_models/user.dart';
 
@@ -57,5 +58,9 @@ class DatabaseManager {
     );
     print("posts: $results");
     return results;
+  }
+
+  Future<void> insertComment(Comment comment) async{
+    await _db.collection("comments").doc(comment.commentId).set(comment.toMap());
   }
 }

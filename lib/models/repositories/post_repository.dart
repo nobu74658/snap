@@ -51,4 +51,12 @@ class PostRepository {
       return dbManager.getPosts();
     }
   }
+
+  // Future<List<Post>> getPosts(FeedMode feedMode) async{
+  //   if (feedMode == FeedMode.FROM_HEAD){
+  //     return;
+  //   } else {
+  //     return;
+  //   }
+  // }
 }

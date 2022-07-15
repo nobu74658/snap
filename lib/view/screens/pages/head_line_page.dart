@@ -30,6 +30,12 @@ class HeadLinePage extends StatelessWidget {
               });
         }
       },
+      // child: Stack(
+      //     children: [
+      //       SpeechBubbles(),
+      //       ArtworkContainer(),
+      //     ],
+      // ),
     );
   }
 }
