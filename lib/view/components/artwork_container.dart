@@ -23,7 +23,7 @@ class ArtworkContainer extends StatelessWidget {
                 height: size.height,
                 child: Stack(children: [
                   ArtworkImage(imageUrl: post.imageUrl),
-                  CommentsContainer(),],),
+                  CommentsContainer(comments: comments,commentIsVisible: [true,true,false,false,false,true,false,true],),],),
               )
             : index == 1
                 ? Container(

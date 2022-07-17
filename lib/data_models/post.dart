@@ -9,6 +9,7 @@ class Post {
   String title;
   String author;
   DateTime postDateTime;
+  List<dynamic> commentIsVisible;
 
 //<editor-fold desc="Data Methods">
 
@@ -21,6 +22,7 @@ class Post {
     required this.title,
     required this.author,
     required this.postDateTime,
+    required this.commentIsVisible,
   });
 
   @override
@@ -35,7 +37,8 @@ class Post {
           caption == other.caption &&
           title == other.title &&
           author == other.author &&
-          postDateTime == other.postDateTime);
+          postDateTime == other.postDateTime &&
+          commentIsVisible == other.commentIsVisible);
 
   @override
   int get hashCode =>
@@ -46,7 +49,8 @@ class Post {
       caption.hashCode ^
       title.hashCode ^
       author.hashCode ^
-      postDateTime.hashCode;
+      postDateTime.hashCode ^
+      commentIsVisible.hashCode;
 
   @override
   String toString() {
@@ -59,6 +63,7 @@ class Post {
         ' title: $title,' +
         ' author: $author,' +
         ' postDateTime: $postDateTime,' +
+        ' commentIsVisible: $commentIsVisible,' +
         '}';
   }
 
@@ -71,6 +76,7 @@ class Post {
     String? title,
     String? author,
     DateTime? postDateTime,
+    List<dynamic>? commentIsVisible,
   }) {
     return Post(
       postId: postId ?? this.postId,
@@ -81,6 +87,7 @@ class Post {
       title: title ?? this.title,
       author: author ?? this.author,
       postDateTime: postDateTime ?? this.postDateTime,
+      commentIsVisible: commentIsVisible ?? this.commentIsVisible,
     );
   }
 
@@ -94,6 +101,7 @@ class Post {
       'title': this.title,
       'author': this.author,
       'postDateTime': this.postDateTime.toIso8601String(),
+      'commentIsVisible': this.commentIsVisible,
     };
   }
 
@@ -107,6 +115,7 @@ class Post {
       title: map['title'] as String,
       author: map['author'] as String,
       postDateTime: DateTime.parse(map['postDateTime'] as String),
+      commentIsVisible: map['commentIsVisible'] as List<dynamic>,
     );
   }
 

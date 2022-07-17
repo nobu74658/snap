@@ -58,7 +58,7 @@ class CommentUploadScreen extends StatelessWidget {
                       post: post,
                       comments: [],
                     ),
-                    CommentsContainer(),
+                    // CommentsContainer(),
                     Container(
                       color: Colors.black45,
                     ),

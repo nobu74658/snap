@@ -1,9 +1,12 @@
 import 'package:bubble/bubble.dart';
 import 'package:flutter/material.dart';
+import 'package:snap/data_models/comment.dart';
+import 'package:snap/data_models/post.dart';
 
 class SpeechBubbles extends StatelessWidget {
+  final Comment comment;
   final bool isVisible;
-  const SpeechBubbles({Key? key, required this.isVisible}) : super(key: key);
+  const SpeechBubbles({Key? key, required this.comment, required this.isVisible}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

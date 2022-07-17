@@ -39,6 +39,8 @@ class PostRepository {
       title: title,
       author: author,
       postDateTime: DateTime.now(),
+      //TODO set commentIsVisible
+      commentIsVisible: [],
     );
     await dbManager.insertPost(post);
   }
@@ -51,12 +53,4 @@ class PostRepository {
       return dbManager.getPosts();
     }
   }
-
-  // Future<List<Post>> getPosts(FeedMode feedMode) async{
-  //   if (feedMode == FeedMode.FROM_HEAD){
-  //     return;
-  //   } else {
-  //     return;
-  //   }
-  // }
 }
