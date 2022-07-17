@@ -3,6 +3,7 @@ import 'package:snap/data_models/comment.dart';
 import 'package:snap/data_models/post.dart';
 import 'package:snap/view/components/artwork_desc.dart';
 import 'package:snap/view/components/artwork_image.dart';
+import 'package:snap/view/components/comments_container.dart';
 
 class ArtworkContainer extends StatelessWidget {
   final Post post;
@@ -20,7 +21,9 @@ class ArtworkContainer extends StatelessWidget {
         return index == 0
             ? Container(
                 height: size.height,
-                child: ArtworkImage(imageUrl: post.imageUrl),
+                child: Stack(children: [
+                  ArtworkImage(imageUrl: post.imageUrl),
+                  CommentsContainer(),],),
               )
             : index == 1
                 ? Container(

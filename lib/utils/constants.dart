@@ -12,3 +12,8 @@ enum FeedMode {
   FROM_HEAD,
   FROM_LIST,
 }
+
+enum CommentLocationMode {
+  FROM_POST,
+  FROM_COMMENT,
+}

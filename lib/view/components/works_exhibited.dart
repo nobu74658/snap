@@ -31,7 +31,6 @@ class WorksExhibited extends StatelessWidget {
                     post: post,
                     comments: commentViewModel.comments,
                   ),
-                  CommentsContainer(),
                   Positioned(
                       right: 8,
                       bottom: 8,

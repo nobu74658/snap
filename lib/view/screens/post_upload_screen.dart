@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:snap/utils/constants.dart';
 import 'package:snap/view/components/confirm_dialog.dart';
+import 'package:snap/view/screens/comment_location_screen.dart';
 import 'package:snap/view_models/post_view_model.dart';
 
 import '../components/post_caption_part.dart';
@@ -59,20 +60,28 @@ class PostUploadScreen extends StatelessWidget {
             body: model.isProcessing
                 ? Center(child: CircularProgressIndicator())
                 : model.isImagePicked
-                    ? Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Column(
-                          children: [
-                            Divider(),
-                            PostCaptionPart(
-                              from: PostCaptionOpenMode.FROM_POST,
-                            ),
-                            Divider(),
-                            PostDescriptionPart(),
-                            Divider(),
-                          ],
+                    ? SingleChildScrollView(
+                      child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            children: [
+                              Divider(),
+                              PostCaptionPart(
+                                from: PostCaptionOpenMode.FROM_POST,
+                              ),
+                              Divider(),
+                              PostDescriptionPart(),
+                              Divider(),
+                              TextButton(
+                                onPressed: () {
+                                  _choiceCommentsLocation(context);
+                                },
+                                child: Text("コメントを有効にする"),
+                              ),
+                            ],
+                          ),
                         ),
-                      )
+                    )
                     : Container());
       },
     );
@@ -90,5 +99,9 @@ class PostUploadScreen extends StatelessWidget {
     final postViewModel = context.read<PostViewModel>();
     await postViewModel.post();
     Navigator.pop(context);
+  }
+
+  void _choiceCommentsLocation(BuildContext context) {
+    Navigator.push(context, MaterialPageRoute(builder: (_) => CommentLocationScreen()));
   }
 }

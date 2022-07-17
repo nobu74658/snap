@@ -2,14 +2,16 @@ import 'package:bubble/bubble.dart';
 import 'package:flutter/material.dart';
 
 class SpeechBubbles extends StatelessWidget {
-  const SpeechBubbles({Key? key}) : super(key: key);
+  final bool isVisible;
+  const SpeechBubbles({Key? key, required this.isVisible}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Container(
-      // alignment: Alignment.center,
-      height: 60,
-      child: Bubble(
+      height: size.height/11,
+      width: size.width/5,
+      child: isVisible ? Bubble(
         borderColor: Colors.black12,
         elevation: 2.0,
         padding: BubbleEdges.symmetric(vertical: 20.0),
@@ -17,7 +19,7 @@ class SpeechBubbles extends StatelessWidget {
         radius: Radius.circular(30.0),
         nip: BubbleNip.leftBottom,
         nipOffset: 10.0,
-      ),
+      ) : Container(),
     );
   }
 }

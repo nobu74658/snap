@@ -6,46 +6,88 @@ class CommentsContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SpeechBubbles(),
-              SpeechBubbles(),
-              SpeechBubbles(),
-            ],
-          ),
-          Row(
-            children: [
-              SpeechBubbles(),
-              SpeechBubbles(),
-              SpeechBubbles(),
-            ],
-          ),
-          Row(
-            children: [
-              SpeechBubbles(),
-              SpeechBubbles(),
-              SpeechBubbles(),
-            ],
-          ),
-          Row(
-            children: [
-              SpeechBubbles(),
-              SpeechBubbles(),
-              SpeechBubbles(),
-            ],
-          ),
-          Row(
-            children: [
-              SpeechBubbles(),
-              SpeechBubbles(),
-              SpeechBubbles(),
-            ],
-          ),
-        ],
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SpeechBubbles(isVisible: false,),
+                SpeechBubbles(isVisible: true,),
+                SpeechBubbles(isVisible: false,),
+                SpeechBubbles(isVisible: true,),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SpeechBubbles(isVisible: false,),
+                SpeechBubbles(isVisible: true,),
+                SpeechBubbles(isVisible: false,),
+                SpeechBubbles(isVisible: true,),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SpeechBubbles(isVisible: false,),
+                SpeechBubbles(isVisible: true,),
+                SpeechBubbles(isVisible: false,),
+                SpeechBubbles(isVisible: true,),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SpeechBubbles(isVisible: false,),
+                SpeechBubbles(isVisible: false,),
+                SpeechBubbles(isVisible: true,),
+                SpeechBubbles(isVisible: true,),],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [SpeechBubbles(isVisible: false,),
+                SpeechBubbles(isVisible: true,),
+                SpeechBubbles(isVisible: false,),
+                SpeechBubbles(isVisible: true,),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [SpeechBubbles(isVisible: true,),
+                SpeechBubbles(isVisible: true,),
+                SpeechBubbles(isVisible: true,),
+                SpeechBubbles(isVisible: true,),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [SpeechBubbles(isVisible: true,),
+                SpeechBubbles(isVisible: false,),
+                SpeechBubbles(isVisible: true,),
+                SpeechBubbles(isVisible: true,),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [SpeechBubbles(isVisible: false,),
+                SpeechBubbles(isVisible: true,),
+                SpeechBubbles(isVisible: false,),
+                SpeechBubbles(isVisible: true,),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [SpeechBubbles(isVisible: false,),
+                SpeechBubbles(isVisible: true,),
+                SpeechBubbles(isVisible: false,),
+                SpeechBubbles(isVisible: true,),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
