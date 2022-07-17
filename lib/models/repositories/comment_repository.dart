@@ -20,5 +20,9 @@ class CommentRepository {
     await dbManager.insertComment(comment);
   }
 
+  Future<List<Comment>> getComments(String postId) async {
+    return dbManager.getComments(postId);
+  }
+
 
 }

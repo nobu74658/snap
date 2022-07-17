@@ -46,21 +46,52 @@ class DatabaseManager {
     final query = await _db.collection("posts").get();
     if (query.docs.length == 0) return [];
     var results = <Post>[];
-    await _db.collection("posts").get().then((value) {
-      value.docs.forEach((element) {
-        results.add(
-          Post.fromMap(
-            element.data(),
-          ),
+    await _db.collection("posts").get().then(
+      (value) {
+        value.docs.forEach(
+          (element) {
+            results.add(
+              Post.fromMap(
+                element.data(),
+              ),
+            );
+          },
         );
-      });
-    }
+      },
     );
     print("posts: $results");
     return results;
   }
 
-  Future<void> insertComment(Comment comment) async{
-    await _db.collection("comments").doc(comment.commentId).set(comment.toMap());
+  Future<void> insertComment(Comment comment) async {
+    await _db
+        .collection("comments")
+        .doc(comment.commentId)
+        .set(comment.toMap());
+  }
+
+  Future<List<Comment>> getComments(String postId) async {
+    final query = await _db.collection("comments").get();
+    if (query.docs.length == 0) return [];
+    var results = <Comment>[];
+    await _db
+        .collection("comments")
+        .where("postId", isEqualTo: postId)
+        .get()
+        .then(
+      (value) {
+        value.docs.forEach(
+          (element) {
+            results.add(
+              Comment.fromMap(
+                element.data(),
+              ),
+            );
+          },
+        );
+      },
+    );
+    print("comments $results");
+    return results;
   }
 }

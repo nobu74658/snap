@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snap/data_models/comment.dart';
 import 'package:snap/models/repositories/comment_repository.dart';
 import 'package:snap/models/repositories/post_repository.dart';
 import 'package:snap/models/repositories/user_repository.dart';
@@ -16,6 +17,7 @@ class CommentViewModel extends ChangeNotifier {
   String content = "";
 
   bool isProcessing = false;
+  List<Comment> comments = [];
 
   Future<void> cancelPost() async {
     isProcessing = false;
@@ -31,6 +33,16 @@ class CommentViewModel extends ChangeNotifier {
       postId,
       content,
     );
+
+    isProcessing = false;
+    notifyListeners();
+  }
+
+  Future<void> getComments(String postId) async {
+    isProcessing = true;
+    notifyListeners();
+
+    comments = await commentRepository.getComments(postId);
 
     isProcessing = false;
     notifyListeners();

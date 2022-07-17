@@ -8,61 +8,68 @@ import 'package:snap/view/components/confirm_dialog.dart';
 import 'package:snap/view_models/comment_view_model.dart';
 
 class CommentUploadScreen extends StatelessWidget {
-
   final Post post;
 
   const CommentUploadScreen({Key? key, required this.post}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<CommentViewModel>(builder: (context, model, child) {
-      return Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          leading: model.isProcessing
-              ? Container()
-              : IconButton(
-                  icon: Icon(Icons.arrow_back),
-                  onPressed: () => _cancelPost(context),
-                ),
-          title: model.isProcessing ? Text("処理中") : Text("投稿"),
-          actions: [
-            model.isProcessing
-                ? IconButton(
-                    icon: Icon(Icons.close),
-                    onPressed: () => _cancelPost(context),
-                  )
+    return Consumer<CommentViewModel>(
+      builder: (context, model, child) {
+        return Scaffold(
+          resizeToAvoidBottomInset: false,
+          appBar: AppBar(
+            leading: model.isProcessing
+                ? Container()
                 : IconButton(
-                    icon: Icon(
-                      Icons.done,
-                    ),
-                    onPressed: () => showConfirmDialog(
+                    icon: Icon(Icons.arrow_back),
+                    onPressed: () => _cancelPost(context),
+                  ),
+            title: model.isProcessing ? Text("処理中") : Text("投稿"),
+            actions: [
+              model.isProcessing
+                  ? IconButton(
+                      icon: Icon(Icons.close),
+                      onPressed: () => _cancelPost(context),
+                    )
+                  : IconButton(
+                      icon: Icon(
+                        Icons.done,
+                      ),
+                      onPressed: () => showConfirmDialog(
                         context: context,
                         title: "投稿",
                         content: "投稿しますか？",
-                        onConfirmed: (isConfirmed){
+                        onConfirmed: (isConfirmed) {
                           if (isConfirmed) {
                             _post(context, post.postId);
                           }
-                        }),
-                  )
-          ],
-        ),
-        body: model.isProcessing ? Center(child: CircularProgressIndicator() ):
-        Stack(
-          alignment: Alignment.center,
-          children: [
-            ArtworkContainer(post: post,),
-            CommentsContainer(),
-            Container(color: Colors.black45,),
-            CommentInputTextField(),
-          ],
-        ),
-      );
-    });
+                        },
+                      ),
+                    )
+            ],
+          ),
+          body: model.isProcessing
+              ? Center(child: CircularProgressIndicator())
+              : Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    ArtworkContainer(
+                      post: post,
+                      comments: [],
+                    ),
+                    CommentsContainer(),
+                    Container(
+                      color: Colors.black45,
+                    ),
+                    CommentInputTextField(),
+                  ],
+                ),
+        );
+      },
+    );
   }
 
-  //TODO _cancelPost
   void _cancelPost(BuildContext context) async {
     final commentViewModel = context.read<CommentViewModel>();
     await commentViewModel.cancelPost();

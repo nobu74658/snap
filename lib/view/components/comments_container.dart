@@ -10,6 +10,7 @@ class CommentsContainer extends StatelessWidget {
       child: Column(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SpeechBubbles(),
               SpeechBubbles(),
